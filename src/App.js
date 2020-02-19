@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { CardList } from './components/card-list/card-list.component';
 import { SeachBox } from './components/search-box/search-box.component';
+import axios from 'axios';
 class App extends Component {
 
   constructor() {
@@ -15,9 +16,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/users")
-      .then(response => response.json())
-      .then(users => this.setState({ monsters: users }));
+    // fetch("https://jsonplaceholder.typicode.com/users")
+    //   .then(response => response.json())
+    //   .then(users => this.setState({ monsters: users }));
+
+    axios.get(`https://jsonplaceholder.typicode.com/users`)
+      .then(res => {
+        const monsters = res.data;
+        this.setState({ monsters });
+      })
+    
+    
   }
 
   handleChange = e => this.setState({ searchField: e.target.value })
