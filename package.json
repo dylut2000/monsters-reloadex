@@ -2,10 +2,12 @@
   "name": "monsters-reloadex",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dylut2000.github.io/monsters-reloadex",
   "dependencies": {
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^10.0.0",
+    "gh-pages": "^2.2.0",
     "npm-check-updates": "^4.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -15,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
